@@ -74,7 +74,10 @@ const createWindow = async () => {
     width: 1024,
     height: 728,
     icon: getAssetPath('icon.png'),
+    alwaysOnTop: true,
+    autoHideMenuBar: true,
     webPreferences: {
+      webviewTag: true,
       preload: app.isPackaged
         ? path.join(__dirname, 'preload.js')
         : path.join(__dirname, '../../.erb/dll/preload.js'),
