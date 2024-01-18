@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import '../renderer/App.css';
 
 import plus from '../img/plus.png';
 import Modal from './Modal';
@@ -14,8 +15,16 @@ export default function MainCom() {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const closeModalKey = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === 'Escape') {
+      setIsModalOpen(false);
+    }
+  };
+
   return (
     <div className="MainPageContainer">
+      <h1>Save Time ⌚ when Opening tabs</h1>
+      <Link to="/empty">go to empty</Link>
       <section>
         <div className="card">
           <div className="tools">
@@ -42,7 +51,9 @@ export default function MainCom() {
           </div>
         </div>
       </section>
-      {isModalOpen && <Modal closeModal={closeModal} />}
+      {isModalOpen && (
+        <Modal closeModal={closeModal} closeModalKey={closeModalKey} />
+      )}
     </div>
   );
 }

@@ -33,6 +33,7 @@ function Main() {
 
     updateSuggestions(filteredSuggestions);
   };
+
   const addUrl = () => {
     // Check if the input is empty
     if (urlInput.trim() === '') {
